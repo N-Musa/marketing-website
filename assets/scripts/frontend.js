@@ -363,11 +363,12 @@ const findAnswers = (question, model) => {
       .filter(layer => layer.source === question.id).map(l => l.target).includes(links.id))
 
   questionroot.innerHTML = `
-    <h2>${question.name}</h2>
-    ${answers.map(answer => {
-    return `<button class="btn btn-primary mr-2 answerbutton" data-question="${question.id}" data-answer="${answer.id}">${answer.name}</button>`
-  }).join('')}
-  `
+    <div class="py-3 mb-3">
+      <h2>${question.name}</h2>
+      ${answers.map(answer => {
+        return `<button class="btn btn-primary mr-2 answerbutton" data-question="${question.id}" data-answer="${answer.id}">${answer.name}</button>`
+      }).join('')}
+    </div>`
 }
 
 if (questionroot) {
