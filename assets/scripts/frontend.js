@@ -356,10 +356,40 @@ function normalizeSlideHeights() {
 $(window).on(
   'load resize orientationchange',
   throttle(normalizeSlideHeights, 300));
+const questionroot = document.getElementById("questionroot")
+const findAnswers = (question, model) => {
+  const answers = Object.values(model.layers.find(layer => layer.type === "diagram-nodes").models)
+    .filter(links => Object.values(model.layers.find(layer => layer.type === "diagram-links").models)
+      .filter(layer => layer.source === question.id).map(l => l.target).includes(links.id))
 
-Array.from(document.querySelectorAll('.dropdown-custom')).map(dropdown => {
-  dropdown.addEventListener('click', function (e) {
-    dropdown.classList.toggle("show")
-    dropdown.querySelector('.dropdown-menu').classList.toggle('show')
-  })
-})
+  questionroot.innerHTML = `
+    <h2>${question.name}</h2>
+    ${answers.map(answer => {
+    return `<button class="btn btn-primary mr-2 answerbutton" data-question="${question.id}" data-answer="${answer.id}">${answer.name}</button>`
+  }).join('')}
+  `
+}
+
+if (questionroot) {
+  fetch(`/admin/questions/fetch`, {
+    headers: {
+      "content-type": "application/json"
+    },
+  }).then(res => res.json())
+    .then(res => {
+      // console.log('res', res);
+      const diagramNodes = res.payload.layers.find(layer => layer.type === "diagram-nodes").models
+      const links = res.payload.layers.find(layer => layer.type === "diagram-links").models
+      const startquestion = Object.values(diagramNodes).find(model => model.ports.find(port => port.label === "In").links.length === 0)
+      document.addEventListener('click', (e) => {
+        if (e.target.classList.contains("answerbutton")) {
+          const currentAnswer = diagramNodes[e.target.dataset.answer]
+          var linkToNext = links[currentAnswer.ports.find(port => port.name === "Out").links[0]]
+          const nextQuestion = Object.values(diagramNodes).find(model => model.id === linkToNext[linkToNext.target === currentAnswer.id ? "source" : "target"])
+          findAnswers(nextQuestion, res.payload)
+          localStorage.setItem('answers', JSON.stringify({ ...JSON.parse(localStorage.getItem('answers')), [e.target.dataset.question]: e.target.innerText }))
+        }
+      })
+      findAnswers(startquestion, res.payload)
+    })
+}
