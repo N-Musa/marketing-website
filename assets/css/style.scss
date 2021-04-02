@@ -1653,6 +1653,16 @@ body[class*="pages-"] {
     border: 0!important;
   }
 }
+.border-right-md {
+  @include media-breakpoint-up(md) {
+    border-right: 1px solid !important;
+  }
+}
+.border-left-md {
+  @include media-breakpoint-up(md) {
+    border-left: 1px solid !important;
+  }
+}
 
 .list-style-none {
   list-style: none;
