@@ -57,6 +57,10 @@ block content
           each course in courses
             +courseOverviewCard(course)
 
+  .w-100.d-flex.justify-content-center
+    .marker.w-8.h-7.d-flex.justify-content-center.align-items-center.text-primary
+      .rotate-45
+        include ../assets/icons/cross.svg
   .container.mt-5
     h2.mb-3.pb-3.mb-4=__( "Additional training" )
     p.text-muted.mb-5=__("Our 1-year program develops higly-motivated individuals into great tech and digital professionals with a broad skill set.")
@@ -103,6 +107,8 @@ block content
                   =__("Mentoring")
 
   if partners
+    .marker.w-8.h-7.bg-primary.d-flex.justify-content-center.align-items-center.my-5
+      include ../assets/icons/arrow.svg
     - partnersWithTestimonial = partners.filter(p => p.testimonial_name && p.testimonial_job && p.testimonial_content && p.testimonial_show )
     if partnersWithTestimonial.length > 0
       .container
@@ -148,6 +154,10 @@ block content
     .text-center.my-5
       ="No partners are marked as testimonial_show."
 
+  .d-flex.justify-content-end
+    .marker.w-8.h-7.bg-primary.d-flex.justify-content-center.align-items-center.my-5
+      .rotate-90
+        include ../assets/icons/arrow.svg
   .container.my-5
     .mx-0.mx-md-4.mx-lg-5
       .mx-lg-5
@@ -189,17 +199,14 @@ block content
                   h5.font-weight-bold=__("Give an Industry Lecture")
                   p.font-weight-light.font-size-normal-below-md=__("Share your industry knowledge by holding a lecture on a topic from our curriculum")
 
-  .container.text-center.mb-5
-    h2.display-1.font-weight-light.mb-5.text-primary=__("Fill Your Open Vacancies")
-    h3.display-2.font-weight-light.mb-5=__("For web developers and online marketers")
-    a.btn.btn-primary.btn-lg(href='/contact', data-toggle='modal', data-target='#contactFormModal')
-      =__("Become a Hiring Partner")
+  .marker.w-8.h-7.bg-primary.d-flex.justify-content-center.align-items-center
+    include ../assets/icons/circle.svg
+  .container.text-center.my-5
+    .bg-light-blue.p-5
+      h3.display-2.font-weight-light.mb-5=__("Ready to join? Fill in your Development & Marketing Positions")
+      a.btn.btn-secondary.btn-lg(href='/contact', data-toggle='modal', data-target='#contactFormModal')
+        =__("Become a Hiring Partner")
 
   .pb-5
   .pb-5
   .pb-200
-
-  //-   each location in locations.filter(l => l.isCampus)
-  //-     span.badge.badge-primary.mr-3.mb-3.font-size-normal=location.name
-  //- h2.text-center=__("Get in touch!")
-  //- +contactform
