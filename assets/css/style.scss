@@ -101,9 +101,6 @@ body:not(.admin).btn {
 .bg-secondary {
   background-color: $secondary !important;
 }
-.bg-primary-trans {
-  background-color: $primary-trans !important;
-}
 .text-primary-light {
   color: $primary-light !important;
 }
@@ -1222,8 +1219,16 @@ div[class*=" #{$class-slug}"] {
   height: 100vh;
   padding: 20px;
 }
+.carousel-item {
+  @include media-breakpoint-up(sm) {
+    padding: 0 50px;
+  }
+  @include media-breakpoint-up(md) {
+    padding: 0 100px;
+  }
+}
  .carousel-indicators {
-  bottom: 8px;
+  bottom: 50px;
   li {
     width: 10px;
     height: 10px;
@@ -1359,9 +1364,6 @@ body:not(.admin) {
 }
 .rounded-md {
   border-radius: 1rem !important;
-}
-.rounded-lg {
-  border-radius: 30px !important;
 }
 
 .history-line {
