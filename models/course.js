@@ -89,6 +89,10 @@ var CourseSchema = new Schema({
   },
   joinTheTechDisruption: String,
   startYourClass: String,
+  feature_on_companies_page: {
+    type: Boolean,
+    default: true
+  },
 });
 CourseSchema.plugin(URLSlugs("headline"));
 CourseSchema.pre("remove", function (next) {

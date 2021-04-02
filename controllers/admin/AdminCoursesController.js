@@ -103,6 +103,7 @@ module.exports.createCourse = async function(req, res) {
   course.joinTheTechDisruption = req.body.joinTheTechDisruption;
   course.startYourClass = req.body.startYourClass;
   course.curriculumPdf = req.body.curriculumPdf ? req.body.curriculumPdf : undefined;
+  course.feature_on_companies_page = !!req.body.feature_on_companies_page ? true : false;
 
   if(!!req.body.successStory) {
     course.successStory = req.body.successStory;
@@ -329,6 +330,7 @@ module.exports.updateCourse = async function(req, res) {
   course.requiredLanguages = req.body.requiredLanguages;
   course.joinTheTechDisruption = req.body.joinTheTechDisruption;
   course.startYourClass = req.body.startYourClass;
+  course.feature_on_companies_page = !!req.body.feature_on_companies_page ? true : false;
 
   function verbose(inputs) {
     let items = [];

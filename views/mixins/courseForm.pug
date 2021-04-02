@@ -17,6 +17,11 @@ mixin courseForm
           .custom-control.custom-checkbox
             input.custom-control-input(name="financingoption" type='checkbox' id="financingoption" value=course && course.financingoption  checked=(course && course.financingoption))
             label.custom-control-label(for="financingoption")="Show financingoption section"
+        label(for="feature_on_companies_page")="Visibility"
+        .mb-3
+          .custom-control.custom-checkbox
+            input.custom-control-input(name="feature_on_companies_page" type='checkbox' id="feature_on_companies_page" value=course && course.feature_on_companies_page  checked=(course && course.feature_on_companies_page))
+            label.custom-control-label(for="feature_on_companies_page")="Show on company page"
       .col
         label.d-block.d-block(for='textColor') Text color
         div

@@ -57,7 +57,7 @@ block content
         p.text-muted.mb-5=__("Our 1-year program develops higly-motivated individuals into great tech and digital professionals with a broad skill set.")
 
         .row.justify-content-center
-          each course in courses
+          each course in courses.filter(c => c.feature_on_companies_page)
             +courseOverviewCard(course)
 
   .w-100.d-flex.justify-content-center
