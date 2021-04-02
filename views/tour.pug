@@ -2,14 +2,17 @@ extends layout.pug
 block content
   .jumbotron.container.bg-transparent.mb-0.mb-md-5
     .pb-0.pb-md-5
-      .floatings
-        img.w-100.shift-top-md-200(src="/media/hero.svg", alt="")
-      h1.mt-5.mb-3=__("Become our Hiring Partner")
-      h2.font-weight-light.mb-3=__("We connect companies to the most talented Web Developers and Online Marketers.")
-      .mt-5
-        .py-5
-          a.btn.btn-secondary.btn-lg(href='/contact', data-toggle='modal', data-target='#contactFormModal')
-            =__("Become a Hiring Partner")
+    .row 
+      .col-md-6
+        h1.mt-5.mb-3=__("Become our Hiring Partner")
+        h2.font-weight-light.mb-3=__("We connect companies to the most talented Web Developers and Online Marketers.")
+        .mt-5
+          .py-5
+            a.btn.btn-secondary.btn-lg(href='/contact', data-toggle='modal', data-target='#contactFormModal')
+              =__("Become a Hiring Partner")
+      .col-md-6
+        .floatings
+          img.w-100(src="/media/hero_tour.svg", alt="")
   div.pb-5.bg-primary
     .container.container-counter.mt-4.pb-5.section-counter
       .col-12.pt-5
