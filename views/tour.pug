@@ -17,35 +17,35 @@ block content
     .container.container-counter.mt-4.pb-5.section-counter
       .col-12.pt-5
         .row.text-white
-          .col-6.col-md-3.mb-5.border-white.border-right
+          .col-6.col-md-3.my-2.border-white.my-5.my-md-0.border-right
             .counter-item
               .counter-number.font-weight-bold
                 h2.display-1
                   span.counter-count=locals.settings.careersuccesspage_alumni ? locals.settings.careersuccesspage_alumni : user ? "setting not defined" : ""
                   = "+"
-              h4.font-weight-bold.shadowed.center.pb-4.w-min-width.m-0-auto: +translate("DCI Alumni")
-          .col-6.col-md-3.mb-5.border-white.border-left.border-right-0.border-right-md
+              h4.font-weight-bold.shadowed.center.w-min-width.m-0-auto: +translate("DCI Alumni")
+          .col-6.col-md-3.my-2.border-white.my-5.my-md-0.border-left.border-right-0.border-right-md
             .counter-item
               .counter-number.font-weight-bol
                 h2.display-1
                   span.counter-count=locals.settings.careersuccesspage_students ? locals.settings.careersuccesspage_students : user ? "setting not defined" : ""
                   = "+"
-              h4.font-weight-bold.shadowed.center.pb-4.w-min-width.m-0-auto
+              h4.font-weight-bold.shadowed.center.w-min-width.m-0-auto
                 +translate("DCI Students")
-          .col-6.col-md-3.mb-5.border-white.border-right.border-left-0.border-left-md
+          .col-6.col-md-3.my-2.border-white.my-5.my-md-0.border-right.border-left-0.border-left-md
             .counter-item
               .counter-number.font-weight-bold
                 h2.display-1
                   span.counter-count=locals.settings.careersuccesspage_companypartners ? locals.settings.careersuccesspage_companypartners : user ? "setting not defined" : ""
                   = "+"
-              h4.font-weight-bold.shadowed.center.pb-4.w-min-width.m-0-auto: +translate("Company Partners")
-          .col-6.col-md-3.mb-5.border-white.border-left
+              h4.font-weight-bold.shadowed.center.w-min-width.m-0-auto: +translate("Company Partners")
+          .col-6.col-md-3.my-2.border-white.my-5.my-md-0.border-left
             .counter-item
               .counter-number.font-weight-bold
                 h2.display-1
                   span.counter-count=locals.settings.careersuccesspage_employmentrate ? locals.settings.careersuccesspage_employmentrate : user ? "setting not defined" : ""
                   = "%"
-              h4.font-weight-bold.shadowed.center.pb-4.w-min-width.m-0-auto: +translate("Employment rate within 6 months")
+              h4.font-weight-bold.shadowed.center.w-min-width.m-0-auto: +translate("Employment rate within 6 months")
   .container.pt-5
     .mx-lg-5.px-lg-5.pb-lg-5
       .mx-xl-5.px-xl-4
