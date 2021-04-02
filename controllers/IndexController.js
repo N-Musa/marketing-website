@@ -500,7 +500,8 @@ module.exports.thankYou = async (req, res) => {
     console.log(err)
     res.redirect('/')
   }
-}module.exports.submitAnswers = async (req, res, next) => {
+}
+module.exports.submitAnswers = async (req, res, next) => {
   const createdAnswer = await Answer.create({ answers: req.body })
   let hubspotPromise = new Promise(() => { })
 
