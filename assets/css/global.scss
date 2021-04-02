@@ -52,6 +52,7 @@ $theme-colors: (
 
 .btn-secondary {
   color: $light-grey;
+  box-shadow: 0px 20px 25px -10px rgba(255, 110, 24, 0.45);
 }
 .bg-section {
   background-color: $bluetrans;
