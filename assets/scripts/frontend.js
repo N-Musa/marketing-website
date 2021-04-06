@@ -271,6 +271,9 @@ Array.from(document.querySelectorAll(".ajaxform")).map(form => {
         setTimeout(() => {
           $(".alert").alert("close");
         }, alertTimeout || 5000);
+        if (data.response.contact_id) {
+          window.location.replace(`${window.location.origin}/thank-you/${data.response.contact_id}`);
+        }
         if (data.response.filepath) {
           window.open(`${window.location.origin}/images/${data.response.filepath}`, '_blank')
         }
