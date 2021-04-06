@@ -1,62 +1,61 @@
 extends layout.pug
 block content
-  .container.pt-5
-    .pt-5
+  .container.pt-md-5
+    .pt-md-5
       .my-5
-        h1=__("Thank you for applying!")
+        h1.h3=__("Thank you for applying!")
         p=__("We will get in contact with you by email to schedule your personal interview. Make sure to check your spam folder if you can’t find it. ")
-    .pb-5
     .bg-primary.text-white.p-4.text-center.text-md-left.glow
       .my-3
-        h4.font-weight-bold.mb-5.pb-3=__("Whats next?")
+        h4.font-weight-bold.mb-5.pb-3.ml-md-5=__("Whats next?")
         .row
           .col-md-3.d-flex.justify-content-center.align-items-center
-            h2.display-1.font-weight-bold.mb-5 01
+            h2.display-0.font-weight-bold.mb-5.mb-md-0 01
           .col-md-9
-            .bg-white.p-5
+            .bg-white.p-3.p-md-5
               .row
                 .col-md-3.d-flex.justify-content-center.d-flex.align-items-center
                   .text-primary.d-flex.justify-content-center.w-100
-                    div.mx-5.mx-md-0
+                    div.mx-5.mx-md-0.w-100
                       include ../assets/icons/course_job_interview.svg
                 .col
-                  h3.text-dark=__("Personal Interview")
-                  p.text-dark=__("You will talk with one of our Admission team members, who is going to assess your motivation and goals. You will get to know us and we will answer all of your questions. ")
+                  h3.h5.text-dark.mb-3=__("Personal Interview")
+                  p.text-muted=__("You will talk with one of our Admission team members, who is going to assess your motivation and goals. You will get to know us and we will answer all of your questions. ")
       .my-5
         .row
           .col-md-3.d-flex.justify-content-center.align-items-center
-            h2.display-1.font-weight-bold.mb-5 02
+            h2.display-0.font-weight-bold.mb-5.mb-md-0.mt-4.mt-md-0 02
           .col-md-9
-            .bg-white.p-5
+            .bg-white.p-3.p-md-5
               .row
                 .col-md-3.d-flex.justify-content-center.d-flex.align-items-center
                   .text-primary.d-flex.justify-content-center.w-100
-                    div.mb-4.mx-5.mx-md-0
+                    div.mb-4.mx-5.mx-md-0.w-100.mt-4
                       include ../assets/icons/thankyou_rocket.svg
                 .col
-                  h3.text-dark=__("Join Our Course")
-                  p.text-dark=__("If you succeed in the admission process, you will then join our 12 months course plus 2 months internship. ")
+                  h3.h5.text-dark.mb-3=__("Join Our Course")
+                  p.text-muted=__("If you succeed in the admission process, you will then join our 12 months course plus 2 months internship. ")
       .my-5
         .row
           .col-md-3.d-flex.justify-content-center.align-items-center
-            h2.display-1.font-weight-bold.mb-5 03
+            h2.display-0.font-weight-bold.mb-5.mb-md-0.mt-4.mt-md-0 03
           .col-md-9
-            .bg-white.p-5
+            .bg-white.p-3.p-md-5
               .row
                 .col-md-3.d-flex.justify-content-center.d-flex.align-items-center
                   .text-primary.d-flex.justify-content-center.w-100
-                    div.mb-4.mx-5.mx-md-0
+                    div.mb-4.mx-5.mx-md-0.w-100.mt-4
                       include ../assets/icons/thankyou_rocketboy.svg
                 .col
-                  h3.text-dark=__("Start your digital career")
-                  p.text-dark=__("Combined with your technical and practical experience acquired, we will support and mentor you through the start of your digital career!")
+                  h3.h5.text-dark.mb-3=__("Start your digital career")
+                  p.text-muted=__("Combined with your technical and practical experience acquired, we will support and mentor you through the start of your digital career!")
 
     
-  .container.text-center.my-5
+  .container.text-center.my-5.py-5
     .bg-light-blue.p-5.mx-md-5
       .mx-md-5.px-md-5
         .px-md-5
-          h3.display-2.font-weight-light.mb-5=__("Financing Options? Other Courses? Career Services? ")
+          h3.h5.mb-5=__("Financing Options? Other Courses? Career Services? ")
           a.btn.btn-secondary.btn-lg(href='/pages/faqs')
             =__("Visit our FAQ")  
 
