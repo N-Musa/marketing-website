@@ -1173,20 +1173,38 @@ div[class*=" #{$class-slug}"] {
   object-fit: cover;
 }
 
-@for $i from 1 through 5 {
+@for $i from 1 through 20 {
   .mh-#{ 30 * $i } {
     max-height: 30px * $i;
   }
   .#{$class-slug}-#{$i} {
-    max-width: 100px * $i;
-    max-height: 100px * $i;
+    max-width: 10px * $i;
+    max-height: 10px * $i;
   }
 
   @include media-breakpoint-up(md) {
     .#{$class-slug}-md-#{$i} {
-      max-width: 100px * $i !important;
-      max-height: 100px * $i !important;
+      max-width: 10px * $i !important;
+      max-height: 10px * $i !important;
     }
+  }
+}
+@include media-breakpoint-up(sm) {
+  .#{$class-slug}-sm-auto{
+    max-width: none!important;
+    max-height: none!important;
+  }
+}
+@include media-breakpoint-up(md) {
+  .#{$class-slug}-md-none{
+    max-width: none!important;
+    max-height: none!important;
+  }
+}
+@include media-breakpoint-up(lg) {
+  .#{$class-slug}-lg-none{
+    max-width: none!important;
+    max-height: none!important;
   }
 }
 @for $i from 1 through 15 {
@@ -1797,9 +1815,6 @@ body[class*="pages-"] {
 }
 .word-wrap-break-word {
   word-wrap: break-word;
-}
-.word-wrap-anywhere {
-  word-wrap: anywhere;
 }#questionsdiagramroot {
   height: 100%;
 	padding: 0;
@@ -1808,6 +1823,18 @@ body[class*="pages-"] {
     overflow: initial;
   }
 }
+.word-wrap-anywhere {
+  word-wrap: anywhere;
+}
 .pointer-events-none {
   pointer-events: none;
+}
+.overflow-wrap-anywhere {
+  overflow-wrap: anywhere;
+}
+.hyphen {
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
 }

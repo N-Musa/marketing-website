@@ -1,5 +1,5 @@
-mixin courseOverviewCard(course)
-  .col-md-6.floatings.mb-5.mb-md-4
+mixin courseOverviewCard(course, classes="col-md-6")
+  .floatings.mb-5.mb-md-4(class=classes)
     .p-5.h-100(style=course && course.coloraccent ? `background-color: ${course.coloraccent.replace(/rgb/, "rgba").replace(/\)/, ", 0.33)")}` : `` )
       a.text-dark(href=`/courses/${course.slug}`)
         h5.font-weight-bold=course.headline

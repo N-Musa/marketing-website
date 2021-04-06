@@ -254,7 +254,6 @@ module.exports.tour = async (req, res) => {
   try {
     const query = await getAvailableTranslations(req, res)
     const partners = await Partner.find(query)
-      .sort("-createdAt")
       .exec();
     res.locals.title = 'Become our Hiring Partner | DigitalCareerInstitute'
     res.render('tour', { companytour: true, partners })
