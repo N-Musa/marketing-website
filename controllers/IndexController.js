@@ -466,7 +466,29 @@ module.exports.jobcenter = async (req, res) => {
     res.redirect(req.headers.referer)
   }
 }
-module.exports.submitAnswers = async (req, res, next) => {
+module.exports.thankYou = async (req, res) => {
+  try {
+    const page = req.path.replace('/', ' ')
+    if (req.params.id.match(/^[0-9a-fA-F]{24}$/)) {
+      const matchinContactRequest = await Contact.findById(req.params.id)
+      if (matchinContactRequest) {
+        res.setHeader("X-Robots-Tag", "noindex, follow");
+        res.render('thankyou', matchinContactRequest)
+      } else {
+        return res.render('404', {
+          page: page
+        })
+      }
+    } else {
+      return res.render('404', {
+        page: page
+      })
+    }
+  } catch (err) {
+    console.log(err)
+    res.redirect('/')
+  }
+}module.exports.submitAnswers = async (req, res, next) => {
   const createdAnswer = await Answer.create({ answers: req.body })
   let hubspotPromise = new Promise(() => { })
 

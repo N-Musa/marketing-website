@@ -65,6 +65,9 @@ html.h-100(lang=locale === "de" ? 'de': 'en')
     meta(name='twitter:creator', content='@DevugeesOrg')
     meta(name="msapplication-TileColor", content="#ffffff")
     meta(name="theme-color", content="#ffffff")
+    if currentPath.includes("/thank-you")
+      meta(name="robots" content="noindex")
+
     title=title
     link(rel="stylesheet", href="/frontend.css")
     link(rel="apple-touch-icon", sizes="180x180", href="/assets/apple-touch-icon.png")
