@@ -472,6 +472,7 @@ module.exports.thankYou = async (req, res) => {
     if (req.params.id.match(/^[0-9a-fA-F]{24}$/)) {
       const matchinContactRequest = await Contact.findById(req.params.id)
       if (matchinContactRequest) {
+        res.locals.title = 'Thank you | DigitalCareerInstitute'
         res.setHeader("X-Robots-Tag", "noindex, follow");
         res.render('thankyou', matchinContactRequest)
       } else {

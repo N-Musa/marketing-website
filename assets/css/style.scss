@@ -1813,9 +1813,13 @@ body[class*="pages-"] {
     width: 100%;
   }
 }
-.word-wrap-break-word {
+.glow {
+  box-shadow: 0px 10px 30px 10px rgba(0, 100, 255, 0.25);
+}
+.word-wrap-break-word{
   word-wrap: break-word;
-}#questionsdiagramroot {
+}
+#questionsdiagramroot {
   height: 100%;
 	padding: 0;
 	margin: 0;
