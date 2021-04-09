@@ -271,7 +271,7 @@ Array.from(document.querySelectorAll(".ajaxform")).map(form => {
         setTimeout(() => {
           $(".alert").alert("close");
         }, alertTimeout || 5000);
-        if (data.response.contact_id) {
+        if (data.response.contact_id && e.target.dataset.redirect === "true") {
           window.location.replace(`${window.location.origin}/thank-you/${data.response.contact_id}`);
         }
         if (data.response.filepath) {

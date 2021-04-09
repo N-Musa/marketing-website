@@ -1,5 +1,5 @@
 mixin contactform
-  form#contactForm.mt-3.ajaxform(method="POST" action="/contact")
+  form#contactForm.mt-3.ajaxform(method="POST" data-redirect=companytour ? "false" : "true" action="/contact")
     .row
       .col-md-6.mb-3
         label(for='firstname')=__("firstname")
