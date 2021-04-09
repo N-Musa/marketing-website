@@ -2,11 +2,11 @@ mixin successCarousel(stories)
   #careersuccesscarousel.carousel.slide.mb-5.pt-3.pb-5(data-ride="carousel" data-interval="40000")
     .carousel-inner.py-5
       each story, index in stories
-        .carousel-item.h-100(class= index === 0 ? ` active` : ``)
-          .py-5.shadow.rounded-sm.h-100
+        .carousel-item.h-100.px-3.px-sm-5(class= index === 0 ? ` active` : ``)
+          .py-5.shadow.rounded-sm.h-100.position-relative
+            if user && story && user.userId === story.userId || user && user.admin === "true"
+              a.position-absolute.right.bottom.btn.btn-outline-primary.z-foreground(href=`/admin/stories/edit/${story.slug}`) Edit
             .bg-white.p-4.rounded-sm.h-100
-              if user && story && user.userId === story.userId || user && user.admin === "true"
-                a.position-absolute.right.bottom.btn.btn-outline-primary.z-foreground(href=`/admin/stories/edit/${story.slug}`) Edit
                   
               div.position-relative.h-100.d-flex.flex-column.justify-content-between
                 .px-5.story-item
@@ -30,7 +30,7 @@ mixin successCarousel(stories)
                     .text-right.rounded-circle.overflow-hidden.mb-5.mb-md-0.order-1.order-md-12(style=`box-shadow: 3px 3px ${course && course.coloraccent ? course.coloraccent : `#1f3fc7 !important`};`)
                       img.mw-150.w-8.h-8(src=`/images/${story.partnerlogo ? story.partnerlogo : story.avatar}` style=`box-shadow: 3px 3px ${course && course.coloraccent ? course.coloraccent : `#1f3fc7 !important`}` class=story.partnerlogo ? "object-fit-contain" : "object-fit-cover")
                   else 
-                    a.text-right.rounded-circle.overflow-hidden.mb-5.mb-md-0.order-1.order-md-12(href=story.partnerlogo ? `#` : `/stories/${story.slug}` style=`box-shadow: 3px 3px ${course && course.coloraccent ? course.coloraccent : `#1f3fc7 !important`};` class=story.partnerlogo ? "" : "streched-link")
+                    a.text-right.rounded-circle.overflow-hidden.mb-5.mb-md-0.order-1.order-md-12.flex-shrink-0(href=story.partnerlogo ? `#` : `/stories/${story.slug}` style=`box-shadow: 3px 3px ${course && course.coloraccent ? course.coloraccent : `#1f3fc7 !important`};` class=story.partnerlogo ? "" : "streched-link")
                       img.mw-150.w-8.h-8(src=`/images/${story.partnerlogo ? story.partnerlogo : story.avatar}` style=`box-shadow: 3px 3px ${course && course.coloraccent ? course.coloraccent : `#1f3fc7 !important`}` class=story.partnerlogo ? "object-fit-contain" : "object-fit-cover")
       if stories.length > 1
         ol.carousel-indicators

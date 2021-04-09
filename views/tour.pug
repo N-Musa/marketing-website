@@ -13,19 +13,20 @@ block content
       .col-md-6.order-1.order-md-12
         .floatings
           .px-5.px-md-0
-            img.w-100(src="/media/hero_tour.svg", alt="")
-  div.pb-5.bg-primary
-    .container.container-counter.mt-4.pb-5.section-counter
-      .col-12.pt-5
+            .px-5.px-md-0
+              img.w-100(src="/media/hero_tour.svg", alt="")
+  div.bg-primary.mb-5.py-md-5
+    .container.container-counter.section-counter
+      .col-12
         .row.text-white
-          .col-6.col-md-3.my-2.border-white.my-5.my-md-0.border-right
+          .col-6.col-md-3.my-5.my-md-0.border-white.border-right.d-flex.flex-column.justify-content-center
             .counter-item
               .counter-number.font-weight-bold
                 h2.display-2
                   span.counter-count=locals.settings.careersuccesspage_alumni ? locals.settings.careersuccesspage_alumni : user ? "setting not defined" : ""
                   = "+"
               h4.hyphen.w-100.font-weight-bold.shadowed.center.w-min-width.m-0-auto: +translate("DCI Alumni")
-          .col-6.col-md-3.my-2.border-white.my-5.my-md-0.border-left.border-right-0.border-right-md
+          .col-6.col-md-3.my-5.my-md-0.border-white.border-left.border-right-0.border-right-md.d-flex.flex-column.justify-content-center
             .counter-item
               .counter-number.font-weight-bol
                 h2.display-2
@@ -33,14 +34,14 @@ block content
                   = "+"
               h4.hyphen.w-100.font-weight-bold.shadowed.center.w-min-width.m-0-auto
                 +translate("DCI Students")
-          .col-6.col-md-3.my-2.border-white.my-5.my-md-0.border-right.border-left-0.border-left-md
+          .col-6.col-md-3.my-5.my-md-0.border-white.border-right.border-left-0.border-left-md.d-flex.flex-column.justify-content-center
             .counter-item
               .counter-number.font-weight-bold
                 h2.display-2
                   span.counter-count=locals.settings.careersuccesspage_companypartners ? locals.settings.careersuccesspage_companypartners : user ? "setting not defined" : ""
                   = "+"
               h4.hyphen.w-100.font-weight-bold.shadowed.center.w-min-width.m-0-auto: +translate("Company Partners")
-          .col-6.col-md-3.my-2.border-white.my-5.my-md-0.border-left
+          .col-6.col-md-3.my-5.my-md-0.border-white.border-left.d-flex.flex-column.justify-content-center
             .counter-item
               .counter-number.font-weight-bold
                 h2.display-2
@@ -54,19 +55,24 @@ block content
         =" "
         =__("stand out")
         = "?"
-      p.text-muted.mb-5=__("Our 1-year program develops higly-motivated individuals into great tech and digital professionals with a broad skill set.")
+      .row 
+        .col-md-6
+          p.text-muted.mb-5=__("Our 1-year program develops higly-motivated individuals into great tech and digital professionals with a broad skill set.")
 
-      .row.justify-content-center
-        each course in courses.filter(c => c.feature_on_companies_page)
-          +courseOverviewCard(course, 'col-lg-4 col-md-6')
+      .px-4.px-md-0
+        .row.justify-content-center
+          each course in courses.filter(c => c.feature_on_companies_page)
+            +courseOverviewCard(course, 'col-lg-4 col-md-6')
 
   .w-100.d-flex.justify-content-center
     .marker.w-8.h-7.d-flex.justify-content-center.align-items-center.text-primary
       .rotate-45
         include ../assets/icons/cross.svg
-  .container.mt-5
+  .container.mt-5.text-center.text-md-left
     h2.mb-3.pb-3.mb-4=__( "Additional training" )
-    p.text-muted.mb-5=__("Our 1-year program develops higly-motivated individuals into great tech and digital professionals with a broad skill set.")
+    .row 
+      .col-md-6
+        p.text-muted.mb-5=__("Our 1-year program develops higly-motivated individuals into great tech and digital professionals with a broad skill set.")
   .bg-primary.py-3.container-md
     .container
       .mx-lg-5
@@ -120,13 +126,13 @@ block content
       include ../assets/icons/arrow.svg
     - partnersWithTestimonial = partners.filter(p => p.testimonial_name && p.testimonial_job && p.testimonial_content && p.testimonial_show )
     if partnersWithTestimonial.length > 0
-      .container
-        .py-5
-          h2.pb-3.mb-5
+      .container-md
+        .pt-5
+          h2.pb-3.mb-1
             =__("More than 400+ Partner Companies")
           =__("See what they are saying about our students.")
           .px-5
-      +successCarousel(partnersWithTestimonial)
+        +successCarousel(partnersWithTestimonial)
   else if user
     .text-center
       ="No partners have either defined a testimonial_job, testimonial_name, testimonial_content or are not marked as testimonial_show."
@@ -134,7 +140,7 @@ block content
   if partners
     - partnersWithTestimonialsShown = partners.filter(p => p.testimonial_show)
     if partnersWithTestimonialsShown.length > 0
-      div.mt-5.bg-light
+      .mt-5.bg-light.d-none.d-md-block 
         .container.py-5
           h4.text-muted=__("Our Hiring Network")
           h3.mb=__("More than ")
@@ -163,55 +169,56 @@ block content
       .rotate-90
         include ../assets/icons/arrow.svg
   .container.my-5
-    .mx-0.mx-md-4.mx-lg-5
-      .mx-lg-5
-        .mx-xl-5
-          h2.pb-3.pt-5
-            =__("How our hiring partners")
-            = " "
-            =__("benefit")
-            ="?"
-          h5.mb-5=__("Our partners benefit from the following all for free!")
-          .row
-            .col-md-6.mb-4.floatings
-              .py-md-3.h-100
-                .h-100.d-flex.flex-column.p-5.justify-content-center.shadow-sm
-                  h5.font-weight-bold.mb-4=__("Access our student profiles even before graduation")
-                  p.font-weight-light.font-size-normal-below-md=__("Every 4-8 weeks we have a new graduation class in each of our locations")
-            .col-md-6.mb-4.floatings
-              .py-md-3.h-100
-                .h-100.d-flex.flex-column.p-5.justify-content-center.shadow-sm
-                  h5.font-weight-bold.mb-4=__("Participate at our events for free")
-                  p.font-weight-light.font-size-normal-below-md=__("Receive regular invitations to our Final Events and meet our graduates")
-            .col-md-6.mb-4.floatings
-              .py-md-3.h-100
-                .h-100.d-flex.flex-column.p-5.justify-content-center.shadow-sm
-                  h5.font-weight-bold.mb-4=__("Host a company tour for our students")
-                  p.font-weight-light.font-size-normal-below-md=__("Show our students what it is like to work in tech by inviting them to your (virtual) offices")
-            .col-md-6.mb-4.floatings
-              .py-md-3.h-100
-                .h-100.d-flex.flex-column.p-5.justify-content-center.shadow-sm
-                  h5.font-weight-bold.mb-4=__("Receive financial support when hiring DCI graduates")
-                  p.font-weight-light.font-size-normal-below-md=__("Employer can be reimbursed 50% of the salary paid for half of the time the student is hired")
-            .col-md-6.mb-4.floatings
-              .py-md-3.h-100
-                .h-100.d-flex.flex-column.p-5.justify-content-center.shadow-sm
-                  h5.font-weight-bold.mb-4=__("Hire our graduates")
-                  p.font-weight-light.font-size-normal-below-md=__("Hire our students for Intern positions, and our graduates for Junior/Trainee positions ")
-            .col-md-6.mb-4.floatings
-              .py-md-3.h-100
-                .h-100.d-flex.flex-column.p-5.justify-content-center.shadow-sm
-                  h5.font-weight-bold.mb-4=__("Give an Industry Lecture")
-                  p.font-weight-light.font-size-normal-below-md=__("Share your industry knowledge by holding a lecture on a topic from our curriculum")
+    h2.pb-3.pt-5
+      =__("How our hiring partners")
+      = " "
+      =__("benefit")
+      ="?"
+    h5.mb-5=__("Our partners benefit from the following all for free!")
+    .px-4
+      .px-0.px-md-5
+        .row
+          .col-md-6.mb-4.floatings
+            .py-md-3.h-100
+              .h-100.d-flex.flex-column.p-5.justify-content-center.shadow-sm
+                h5.font-weight-bold.mb-4=__("Access our student profiles even before graduation")
+                p.font-weight-light.font-size-normal-below-md=__("Every 4-8 weeks we have a new graduation class in each of our locations")
+          .col-md-6.mb-4.floatings
+            .py-md-3.h-100
+              .h-100.d-flex.flex-column.p-5.justify-content-center.shadow-sm
+                h5.font-weight-bold.mb-4=__("Participate at our events for free")
+                p.font-weight-light.font-size-normal-below-md=__("Receive regular invitations to our Final Events and meet our graduates")
+          .col-md-6.mb-4.floatings
+            .py-md-3.h-100
+              .h-100.d-flex.flex-column.p-5.justify-content-center.shadow-sm
+                h5.font-weight-bold.mb-4=__("Host a company tour for our students")
+                p.font-weight-light.font-size-normal-below-md=__("Show our students what it is like to work in tech by inviting them to your (virtual) offices")
+          .col-md-6.mb-4.floatings
+            .py-md-3.h-100
+              .h-100.d-flex.flex-column.p-5.justify-content-center.shadow-sm
+                h5.font-weight-bold.mb-4=__("Receive financial support when hiring DCI graduates")
+                p.font-weight-light.font-size-normal-below-md=__("Employer can be reimbursed 50% of the salary paid for half of the time the student is hired")
+          .col-md-6.mb-4.floatings
+            .py-md-3.h-100
+              .h-100.d-flex.flex-column.p-5.justify-content-center.shadow-sm
+                h5.font-weight-bold.mb-4=__("Hire our graduates")
+                p.font-weight-light.font-size-normal-below-md=__("Hire our students for Intern positions, and our graduates for Junior/Trainee positions ")
+          .col-md-6.mb-4.floatings
+            .py-md-3.h-100
+              .h-100.d-flex.flex-column.p-5.justify-content-center.shadow-sm
+                h5.font-weight-bold.mb-4=__("Give an Industry Lecture")
+                p.font-weight-light.font-size-normal-below-md=__("Share your industry knowledge by holding a lecture on a topic from our curriculum")
 
   .marker.w-8.h-7.bg-primary.d-flex.justify-content-center.align-items-center
     include ../assets/icons/circle.svg
   .container.text-center.my-5
-    .bg-light-blue.p-5
-      .mx-md-5
-        h5.font-weight-bold.mb-5.mx-md-5=__("Ready to join? Fill in your Development & Marketing Positions")
-        a.btn.btn-secondary.btn-lg(href='/contact', data-toggle='modal', data-target='#contactFormModal')
-          =__("Become a Hiring Partner")
+    .px-4
+      .px-0.px-md-5
+        .bg-light-blue.p-5
+          .mx-md-5
+            h5.font-weight-bold.mb-5.mx-md-5=__("Ready to join? Fill in your Development & Marketing Positions")
+            a.btn.btn-secondary.btn-lg(href='/contact', data-toggle='modal', data-target='#contactFormModal')
+              =__("Become a Hiring Partner")
 
   .pb-5
   .pb-5
