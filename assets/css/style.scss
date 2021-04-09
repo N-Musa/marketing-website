@@ -43,7 +43,7 @@
 
 body {
   font-family: "Gordita-Regular", sans-serif;
-  color: $dark !important;
+  color: $bluedark !important;
   font-weight: 200;
 }
 
@@ -108,7 +108,7 @@ body:not(.admin).btn {
   background-color: $primary-light !important;
 }
 .bg-red-light {
-  background-color: $redlight !important;
+  background-color: $red-light !important;
 }
 
 .mh-100 {
@@ -490,7 +490,8 @@ body.tour,
 body[class*="pages-"] {
   blockquote {
     @extend .blockquote;
-    color: $grey3;
+    color: var(--gray);
+
     position: relative;
     padding: 1em 0 1em 1em;
   }
@@ -688,7 +689,7 @@ body:not(.admin) {
   input[type="time"],
   input[type="url"],
   input[type="week"] {
-    background-color: $grey1 !important;
+    background-color: transparent;
     color: #222;
     padding: 12px;
     font-size: 16px;
@@ -698,8 +699,9 @@ body:not(.admin) {
     outline: none;
     box-sizing: border-box;
     height: 42px;
-    border: 1px solid $grey2;
-    border-radius: 5px !important;
+    border-radius: 0 !important;
+    border: none;
+    border-bottom: 1px solid lighten($dark, 10);
 
     &:focus,
     &:focus-within,
@@ -712,14 +714,10 @@ body:not(.admin) {
     padding: 0 12px;
   }
 }
-label {
-  color: $grey3;
-}
 
 ::placeholder {
-  color: $grey1!important;
+  color: $gray-800;
 }
-
 
 .dataPrivacyLink {
   text-decoration: underline;
@@ -1013,10 +1011,10 @@ label {
 .verticalLineGetInv:after {
   content: "";
   position: absolute;
-  left: calc(-1 * $borderWidth);
-  bottom: calc(-1 * $borderWidth);
-  height: calc(100% + $borderWidth);
-  width: calc(100% + $borderWidth);
+  left: calc(-1 * var(--borderWidth));
+  bottom: calc(-1 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth));
+  width: calc(100% + var(--borderWidth));
   background: linear-gradient(
     60deg,
     #f79533,
@@ -1076,9 +1074,6 @@ label {
 .top-50 {
   top: 50%;
 }
-.left-50 {
-  left: 50%;
-}
 
 .shift-left-percent {
   transform: translateX(50%);
@@ -1122,9 +1117,6 @@ label {
 }
 .shift-vertical {
   transform: translate(50%, -50%);
-}
-.shift-vertical-negative {
-  transform: translate(-50%, -50%);
 }
 .shift-vertical-md-margin {
   margin-right: -1em;
@@ -1664,7 +1656,7 @@ body[class*="pages-"] {
   border-top-width: 2px;
 }
 .border-red {
-  border-color: $redlight!important;
+  border-color: $red-light!important;
 }
 .border-md-0 {
   @include media-breakpoint-up(md) {

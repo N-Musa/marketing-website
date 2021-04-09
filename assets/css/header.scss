@@ -89,7 +89,7 @@
 }
 
 .navbar-light .navbar-nav .nav-link {
-  color: $dark;
+  color: $bluedark;
 }
 .nav-link {
   padding: 5px !important;
@@ -171,8 +171,8 @@
       background-color: white;
     }
     .dropdown-item {
-      background-color: transparent;
-      color:  var(--dark);
+      background-color: transparent ;
+      color: $bluedark ;
       &:hover {
         color: $primary ;
       }
