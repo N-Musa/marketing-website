@@ -8,8 +8,10 @@ block content
   .container.mb-5.mb-md-0.pt-md-5
     .pt-md-5
       .my-5
-        h2.h3=__("Thank you for applying!")
-        p=__("We will get in contact with you by email to schedule your personal interview. Make sure to check your spam folder if you can’t find it. ")
+        .row 
+          .col-md-6
+            h1=__("Thank you for applying!")
+            p=__("We will get in contact with you by email to schedule your personal interview. Make sure to check your spam folder if you can’t find it. ")
     .bg-primary.text-white.p-4.text-center.text-md-left.glow
       .my-3
         h3.font-weight-bold.mb-5.pb-3.ml-md-5=__("Whats next?")
@@ -58,7 +60,7 @@ block content
   .pb-5.pb-md-0
   .container.text-center.my-5.py-5
     .bg-light-blue.p-5.mx-md-5
-      .mx-md-5.px-md-5
+      .mx-md-5.p-md-5
         .px-md-5
           h3.h4.mb-5=__("Financing Options? Other Courses? Career Services? ")
           a.btn.btn-secondary.btn-lg(href='/pages/faqs')
