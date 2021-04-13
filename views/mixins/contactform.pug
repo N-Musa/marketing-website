@@ -1,6 +1,6 @@
 mixin contactform
   form#contactForm.mt-3.ajaxform(method="POST" action="/contact")
-    .row
+    .row.bg-white
       .col-md-4.bg-primary.text-white
         .p-5
           h2 Some text
@@ -21,63 +21,75 @@ mixin contactform
                 include ../../assets/media/spinner.svg
               | Vulkanstraße 110367 Berlin
       .col-md-8
-        .row
-      .col-md-6.mb-3
-        label(for='firstname')=__("firstname")
-        input#firstname.form-control(name="firstname" type='text', placeholder='Firstname', value=contact ? contact.firstname : '', required)
-        input#track.form-control(name="track" type="hidden" )
-      .col-md-6.mb-3
-        label(for='lastname')=__("lastname")
-        input#lastname.form-control(name="lastname" type='text', placeholder='Lastname', value=contact ? contact.lastname : '', required)
-      .col.mb-3
-        label(for='email')=__("Email")
-        span.text-muted
-        input#email.form-control(name="email" type='email', placeholder='email@example.com', value=contact ? contact.email : '', required)
-      .col-md-12
-        .form-group
-          label(for='body')=__("Message")
-          textarea.mb-3#body.form-control(name="body" placeholder=__("Please, write your message here..."), required)=contact ? contact.body : ''
-        .form-group
-          label(for='phone')=__("Phone")
-          input#phone.form-control(name="phone" type='number', pattern="[\+]\d*", placeholder='0170123456789' , value=contact ? contact.phone : '', required)
-          input#age.agefield.form-control(name="age" tabindex="-1" type='text', placeholder='25')
-        if locations && locations.length > 0
-          label(for='location')=__("Location")
-          select.mb-3.custom-select.text-muted.form-control(required='', name="locations" id="location")
-            option( contact && selected disabled value="")=__("Select your location here...")
-            each location in locations
-              option(value=(location._id) selected=contact && contact.locations && contact.locations[0].toString() === location._id.toString() ?  "selected" :  false )=location.name
-        if !companytour
-          p
-            label(for="unemployed")
-              =__("Are you currently unemployed?")
+        .mx-md-5.py-3
+          .row
+            .col-md-6.mb-3
+              label(for='firstname')=__("firstname")
+              input#firstname.form-control(name="firstname" type='text', placeholder='Firstname', value=contact ? contact.firstname : '', required)
+              input#track.form-control(name="track" type="hidden" )
+            .col-md-6.mb-3
+              label(for='lastname')=__("lastname")
+              input#lastname.form-control(name="lastname" type='text', placeholder='Lastname', value=contact ? contact.lastname : '', required)
+            .col.mb-3
+              label(for='email')=__("Email")
+              span.text-muted
+              input#email.form-control(name="email" type='email', placeholder='email@example.com', value=contact ? contact.email : '', required)
+            .col.mb-3
+              label(for='email')=__("Email")
+              input#email.form-control(name="email" type='radio' required="true")
+            .col.mb-3
+              label(for='email')=__("Email")
+              input#email.form-control(name="email" type='radio' required="true")
+            .col-md-12
+              .form-group
+                label(for='phone')=__("Phone")
+                input#phone.form-control(name="phone" type='number', pattern="[\+]\d*", placeholder='0170123456789' , value=contact ? contact.phone : '', required)
+                input#age.agefield.form-control(name="age" tabindex="-1" type='text', placeholder='25')
+              if locations && locations.length > 0
+                label(for='location')=__("Location")
+                select.mb-3.custom-select.text-muted.form-control(required='', name="locations" id="location")
+                  option( contact && selected disabled value="")=__("Select your location here...")
+                  each location in locations
+                    option(value=(location._id) selected=contact && contact.locations && contact.locations[0].toString() === location._id.toString() ?  "selected" :  false )=location.name
+              if !companytour
+                p
+                  label(for="unemployed")
+                    =__("Are you currently unemployed?")
 
-            select.mb-3.custom-select.text-muted.form-control(name="unemployed" id="unemployed" required)
-              option(selected disabled value="")=__("Please select an answer here...")
-              option(value="Yes" selected=contact && contact.unemployed == "yes" ? "selected" : false)=__("yes")
-              option(value="No" selected=contact && contact.unemployed == "no" ? "selected" : false)=__("no")
-              option(value="No, but soon" selected=contact && contact.unemployed == "no but soon" ?  "selected" : false )=__("no but soon")
-          p
-            label(for="jobcenter")
-              =__("Are you registered with the Jobcenter or Agentur für Arbeit?")
+                  select.mb-3.custom-select.text-muted.form-control(name="unemployed" id="unemployed" required)
+                    option(selected disabled value="")=__("Please select an answer here...")
+                    option(value="Yes" selected=contact && contact.unemployed == "yes" ? "selected" : false)=__("yes")
+                    option(value="No" selected=contact && contact.unemployed == "no" ? "selected" : false)=__("no")
+                    option(value="No, but soon" selected=contact && contact.unemployed == "no but soon" ?  "selected" : false )=__("no but soon")
+                p
+                  label(for="jobcenter")
+                    =__("Are you registered with the Jobcenter or Agentur für Arbeit?")
 
-            select.mb-3.custom-select.text-muted.form-control(name="jobcenter" id="jobcenter" required)
-              option(selected=contact && !contact.jobcenter ? "selected" : false, disabled value="")=__("Please select an answer here...")
-              option(value=1 selected=contact && contact.jobcenter == true ? "selected" : false)=__("yes")
-              option(value=0 selected=contact && contact.jobcenter == false ? "selected" : false )=__("no")
-              
-        p.dataPrivacyLink
-          label.checkbox.TermsofService.text-muted
-            =__("I have read and agree to the")
-            input(type='checkbox', name='TermsofService', value="true", required)
-            span.checkmark
-          a.ml-1(data-toggle='modal', data-target='#dataPrivacy')=__("Data Privacy")
-        if companytour
-          input(type="hidden" name='companytour' checked value="true")
-        .text-center
-          button.btn.btn-lg.btn-secondary.m-auto(type="submit")
-            div#contactform_text=__("SEND")
-            div#contactform_spinner.h-1.vertical-align-revert.rotating.text-white.d-none
-              include ../../assets/media/spinner.svg
-            div#contactform_check.h-1.vertical-align-revert.text-white.d-none
-              include ../../assets/media/check.svg
+                  select.mb-3.custom-select.text-muted.form-control(name="jobcenter" id="jobcenter" required)
+                    option(selected=contact && !contact.jobcenter ? "selected" : false, disabled value="")=__("Please select an answer here...")
+                    option(value=1 selected=contact && contact.jobcenter == true ? "selected" : false)=__("yes")
+                    option(value=0 selected=contact && contact.jobcenter == false ? "selected" : false )=__("no")
+              .form-group
+                label(for='body')=__("Message")
+                textarea.mb-3#body.form-control(name="body" placeholder=__("Please, write your message here..."), required)=contact ? contact.body : ''
+                    
+              p.dataPrivacyLink
+                label.checkbox.TermsofService.text-muted
+                  =__("Subscribe to our Newsletter")
+                  input(type='checkbox', name='newsletter', value="true")
+                  span.checkmark
+              p.dataPrivacyLink
+                label.checkbox.TermsofService.text-muted
+                  =__("I have read and agree to the")
+                  input(type='checkbox', name='TermsofService', value="true", required)
+                  span.checkmark
+                a.ml-1(data-toggle='modal', data-target='#dataPrivacy')=__("Data Privacy")
+              if companytour
+                input(type="hidden" name='companytour' checked value="true")
+              .text-center
+                button.btn.btn-lg.btn-secondary.m-auto(type="submit")
+                  div#contactform_text=__("SEND")
+                  div#contactform_spinner.h-1.vertical-align-revert.rotating.text-white.d-none
+                    include ../../assets/media/spinner.svg
+                  div#contactform_check.h-1.vertical-align-revert.text-white.d-none
+                    include ../../assets/media/check.svg

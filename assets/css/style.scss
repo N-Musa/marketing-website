@@ -43,7 +43,7 @@
 
 body {
   font-family: "Gordita-Regular", sans-serif;
-  color: $bluedark !important;
+  color: $dark !important;
   font-weight: 200;
 }
 
@@ -111,7 +111,7 @@ body:not(.admin).btn {
   background-color: $primary-light !important;
 }
 .bg-red-light {
-  background-color: $red-light !important;
+  background-color: $redlight !important;
 }
 
 .mh-100 {
@@ -493,8 +493,7 @@ body.tour,
 body[class*="pages-"] {
   blockquote {
     @extend .blockquote;
-    color: var(--gray);
-
+    color: $grey3;
     position: relative;
     padding: 1em 0 1em 1em;
   }
@@ -692,7 +691,7 @@ body:not(.admin) {
   input[type="time"],
   input[type="url"],
   input[type="week"] {
-    background-color: transparent;
+    background-color: $grey1 !important;
     color: #222;
     padding: 12px;
     font-size: 16px;
@@ -702,9 +701,8 @@ body:not(.admin) {
     outline: none;
     box-sizing: border-box;
     height: 42px;
-    border-radius: 0 !important;
-    border: none;
-    border-bottom: 1px solid lighten($dark, 10);
+    border: 1px solid $grey2;
+    border-radius: 5px !important;
 
     &:focus,
     &:focus-within,
@@ -717,10 +715,14 @@ body:not(.admin) {
     padding: 0 12px;
   }
 }
+label {
+  color: $grey3;
+}
 
 ::placeholder {
-  color: $gray-800;
+  color: $grey1!important;
 }
+
 
 .dataPrivacyLink {
   text-decoration: underline;
@@ -1014,10 +1016,10 @@ body:not(.admin) {
 .verticalLineGetInv:after {
   content: "";
   position: absolute;
-  left: calc(-1 * var(--borderWidth));
-  bottom: calc(-1 * var(--borderWidth));
-  height: calc(100% + var(--borderWidth));
-  width: calc(100% + var(--borderWidth));
+  left: calc(-1 * $borderWidth);
+  bottom: calc(-1 * $borderWidth);
+  height: calc(100% + $borderWidth);
+  width: calc(100% + $borderWidth);
   background: linear-gradient(
     60deg,
     #f79533,
@@ -1636,7 +1638,7 @@ body[class*="pages-"] {
   border-top-width: 2px;
 }
 .border-red {
-  border-color: $red-light!important;
+  border-color: $redlight!important;
 }
 .careerwave {
   background-image: url('/media/wave.svg');

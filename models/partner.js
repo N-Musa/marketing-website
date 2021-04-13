@@ -3,7 +3,11 @@ const mongoose = require("mongoose"),
   URLSlugs = require("mongoose-url-slugs");
 
 const PartnerSchema = new Schema({
-  title: String,
+  title: {
+    type: String,
+    default: '',
+    trim: true
+  },
   link: String,
   order: Number,
   partnerlogo: {
