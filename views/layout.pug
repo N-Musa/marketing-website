@@ -22,6 +22,7 @@ include mixins/adminButtonGroup
 include mixins/translate
 include mixins/fullstory
 include mixins/curriculumForm
+include mixins/courseOverviewCard
 
 doctype html
 html.h-100(lang=locale === "de" ? 'de': 'en')
@@ -203,7 +204,7 @@ html.h-100(lang=locale === "de" ? 'de': 'en')
       .modal#dataPrivacy
         +dataPrivacy
     
-    if (course && course.curriculumPdf) || currentPath === '/jobcenter'
+    if (course && course.curriculumPdf) || currentPath === '/jobcenter'|| currentPath === '/tour'
       +curriculumForm
 
     if currentPath && !currentPath.includes('admin') && !currentPath.includes('users')

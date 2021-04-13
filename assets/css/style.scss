@@ -1640,44 +1640,14 @@ body[class*="pages-"] {
 .border-red {
   border-color: $redlight!important;
 }
-.careerwave {
-  background-image: url('/media/wave.svg');
-  background-size: cover;
-  background-repeat: repeat-x;
+.border-md-0 {
   @include media-breakpoint-up(md) {
-    background-size: contain;
+    border: 0!important;
   }
 }
+
 .list-style-none {
   list-style: none;
-}
-.badge-primary-trans {
-  background-color: $primary-trans;
-}
-.bar-bottom {
-  position: relative;
-  &:after {
-    border-radius: 5px;
-    content: "";
-    display: block;
-    width: 50px;
-    height: 5px;
-    background: $primary;
-    position: absolute;
-    bottom: 0;
-    left: 0.25em;
-  }
-  &.shadowed{
-    &:after {
-      box-shadow: 0 2px 3px #0000004e;
-    }
-  }
-  &.center{
-    &:after {
-      left: 50%;
-      transform: translateX(-50%);
-    }
-  }
 }
 .w-min-width {
   width: min-content;

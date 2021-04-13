@@ -1,0 +1,26 @@
+mixin courseOverviewCard(course)
+  .col-md-6.floatings.mb-5.mb-md-4
+    .p-5.h-100(style=course && course.coloraccent ? `background-color: ${course.coloraccent.replace(/rgb/, "rgba").replace(/\)/, ", 0.33)")}` : `` )
+      a.text-dark(href=`/courses/${course.slug}`)
+        h5.font-weight-bold=course.headline
+      .my-3
+        strong.font-weight-bold.mr-2=__("Duration")+":"
+        span.padded-text()=course.courselength
+      if course.massnahmeNumber
+        .my-3
+          strong.font-weight-bold.mr-2=__("Number")+":"
+          span.padded-text()=course.massnahmeNumber
+      if course.startInterval
+        .my-3
+          strong.font-weight-bold.mr-2=__("Starts every")+":"
+          span.padded-text()=course.startInterval
+      if course.courseLanguages
+        .my-3
+          strong.font-weight-bold.mr-2=__("Language")+":"
+          span.padded-text()=course.courseLanguages
+      if course.curriculumPdf
+        a.text-dark(href='#' data-toggle='modal', data-target=`#curriculumpopup` data-course=`${course.slug}`) 
+          .d-flex.justify-content-between.align-items-center.mt-4
+            =__("Download complete course curriculum")
+            .w-4.h-4
+              include ../../assets/icons/download.svg
