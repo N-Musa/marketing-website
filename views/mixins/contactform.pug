@@ -1,7 +1,7 @@
 mixin contactform
-  form#contactForm.mt-3.ajaxform(method="POST" action="/contact")
+  form#contactForm.ajaxform(method="POST" action="/contact")
     .row.bg-white
-      .col-md-4.bg-primary.text-white
+      .col-lg-4.bg-primary.text-white.d-none.d-lg-block
         .p-5
           h2 Some text
           .px-md-3
@@ -20,7 +20,7 @@ mixin contactform
               span.d-inline-block.w-1.h-1.mr-1
                 include ../../assets/media/spinner.svg
               | Vulkanstraße 110367 Berlin
-      .col-md-8
+      .col-lg-8
         .mx-md-5.py-3
           .row
             .col-md-6.mb-3

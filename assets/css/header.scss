@@ -172,7 +172,7 @@
     }
     .dropdown-item {
       background-color: transparent;
-      color: $bluedark;
+      color:  var(--dark);
       &:hover {
         color: $primary ;
       }
