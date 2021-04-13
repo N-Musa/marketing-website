@@ -178,79 +178,37 @@ block content
             = " "
             =__("benefit")
             ="?"
-          .row.text-center
-            .col-6.mb-4.floatings
-              .py-md-3.h-100.pr-3
-                .h-100
-                  .flip-card
-                    .flip-card-inner
-                      .flip-card-front
-                        .h-100.border.border-primary.rounded-lg.d-flex.flex-column.align-items-center.py-md-5.py-3.px-3.justify-content-center
-                          .mb-4.w-5.d-flex.text-primary
-                            include ../assets/media/careersuccess_cv.svg
-                          h3.font-weight-light.font-size-normal-below-md=__("Access our student profiles even before graduation")
-                      .flip-card-back.rounded-lg.p-5.border.border-light
-                        h3.font-weight-light.font-size-normal-below-md=__("Every 4-8 weeks we have a new graduation class in each of our locations")
-            .col-6.mb-4.floatings
-              .py-md-3.h-100.pl-3
-                .h-100
-                  .flip-card
-                    .flip-card-inner
-                      .flip-card-front
-                        .h-100.border.border-primary.rounded-lg.d-flex.flex-column.align-items-center.py-md-5.py-3.px-3.justify-content-center
-                          .mb-4.w-5.d-flex.text-primary
-                            include ../assets/media/careersuccess_event.svg
-                          h3.font-weight-light.font-size-normal-below-md=__("Participate at our events for free")
-                      .flip-card-back.rounded-lg.p-5.border.border-light
-                        h3.font-weight-light.font-size-normal-below-md=__("Receive regular invitations to our Final Events and meet our graduates")
-            .col-6.mb-4.floatings
-              .py-md-3.h-100.pr-3
-                .h-100
-                  .flip-card
-                    .flip-card-inner
-                      .flip-card-front
-                        .h-100.border.border-primary.rounded-lg.d-flex.flex-column.align-items-center.py-md-5.py-3.px-3.justify-content-center
-                          .mb-4.w-5.d-flex.text-primary
-                            include ../assets/media/careersuccess_company_tour.svg
-                          h3.font-weight-light.font-size-normal-below-md=__("Host a company tour for our students")
-                      .flip-card-back.rounded-lg.p-5.border.border-light
-                        h3.font-weight-light.font-size-normal-below-md=__("Show our students what it is like to work in tech by inviting them to your (virtual) offices")
-            .col-6.mb-4.floatings
-              .py-md-3.h-100.pl-3
-                .h-100
-                  .flip-card
-                    .flip-card-inner
-                      .flip-card-front
-                        .h-100.border.border-primary.rounded-lg.d-flex.flex-column.align-items-center.py-md-5.py-3.px-3.justify-content-center
-                          .mb-4.w-5.d-flex.text-primary
-                            include ../assets/media/careersuccess_financial_support.svg
-                          h3.font-weight-light.font-size-normal-below-md=__("Receive financial support when hiring DCI graduates")
-                      .flip-card-back.rounded-lg.p-5.border.border-light
-                        h3.font-weight-light.font-size-normal-below-md=__("Employer can be reimbursed 50% of the salary paid for half of the time the student is hired")
-            .col-6.mb-4.floatings
-              .py-md-3.h-100.pr-3
-                .h-100
-                  .flip-card
-                    .flip-card-inner
-                      .flip-card-front
-                        .h-100.border.border-primary.rounded-lg.d-flex.flex-column.align-items-center.py-md-5.py-3.px-3.justify-content-center
-                          .mb-4.w-5.d-flex.text-primary
-                            include ../assets/media/careersuccess_permanent_job.svg
-                          h3.font-weight-light.font-size-normal-below-md=__("Hire our graduates")
-                      .flip-card-back.rounded-lg.p-5.border.border-light
-                        h3.font-weight-light.font-size-normal-below-md=__("Hire our students for Intern positions, and our graduates for Junior/Trainee positions ")
-            .col-6.mb-4.floatings
-              .py-md-3.h-100.pl-3
-                .h-100
-                  .flip-card
-                    .flip-card-inner
-                      .flip-card-front
-                        .h-100.border.border-primary.rounded-lg.d-flex.flex-column.align-items-center.py-md-5.py-3.px-3.justify-content-center
-                          .mb-4.w-5.d-flex.text-primary
-                            include ../assets/media/careersuccess_lecturer.svg
-                          h3.font-weight-light.font-size-normal-below-md=__("Give an Industry Lecture")
-                      .flip-card-back.rounded-lg.p-5.border.border-light
-                        h3.font-weight-light.font-size-normal-below-md=__("Share your industry knowledge by holding a lecture on a topic from our curriculum")
+          .row
+            .col-md-6.mb-4.floatings
+              .py-md-3.h-100
+                .h-100.border.d-flex.flex-column.p-5.justify-content-center.box-shadow
+                  h5.font-weight-bold=__("Access our student profiles even before graduation")
+                  p.font-weight-light.font-size-normal-below-md=__("Every 4-8 weeks we have a new graduation class in each of our locations")
+            .col-md-6.mb-4.floatings
+              .py-md-3.h-100
+                .h-100.border.d-flex.flex-column.p-5.justify-content-center.box-shadow
+                  h5.font-weight-bold=__("Participate at our events for free")
+                  p.font-weight-light.font-size-normal-below-md=__("Receive regular invitations to our Final Events and meet our graduates")
+            .col-md-6.mb-4.floatings
+              .py-md-3.h-100
+                .h-100.border.d-flex.flex-column.p-5.justify-content-center.box-shadow
+                  h5.font-weight-bold=__("Host a company tour for our students")
+                  p.font-weight-light.font-size-normal-below-md=__("Show our students what it is like to work in tech by inviting them to your (virtual) offices")
+            .col-md-6.mb-4.floatings
+              .py-md-3.h-100
+                .h-100.border.d-flex.flex-column.p-5.justify-content-center.box-shadow
+                  h5.font-weight-bold=__("Receive financial support when hiring DCI graduates")
+                  p.font-weight-light.font-size-normal-below-md=__("Employer can be reimbursed 50% of the salary paid for half of the time the student is hired")
+            .col-md-6.mb-4.floatings
+              .py-md-3.h-100
+                .h-100.border.d-flex.flex-column.p-5.justify-content-center.box-shadow
+                  h5.font-weight-bold=__("Hire our graduates")
+                  p.font-weight-light.font-size-normal-below-md=__("Hire our students for Intern positions, and our graduates for Junior/Trainee positions ")
+            .col-md-6.mb-4.floatings
+              .py-md-3.h-100
+                .h-100.border.d-flex.flex-column.p-5.justify-content-center.box-shadow
+                  h5.font-weight-bold=__("Give an Industry Lecture")
+                  p.font-weight-light.font-size-normal-below-md=__("Share your industry knowledge by holding a lecture on a topic from our curriculum")
 
   .container.text-center.mb-5
     h2.display-1.font-weight-light.mb-5.text-primary=__("Fill Your Open Vacancies")

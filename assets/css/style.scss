@@ -1698,48 +1698,6 @@ body[class*="pages-"] {
 .font-size-120 {
   font-size: 120%;
 }
-.flip-card {
-  background-color: transparent;
-  width: 100%;
-  height: 250px;
-  @include media-breakpoint-up(md) {
-    height: 300px;
-  }
-  perspective: 1000px; /* Remove this if you don't want the 3D effect */
-}
-
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-}
-
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
-}
-
-.flip-card-front, .flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-}
-
-.flip-card-front {
-  color: black;
-}
-
-.flip-card-back {
-   background: linear-gradient(0deg, #bbc6ff 0%, white 100%);
-  color: black;
-  transform: rotateY(180deg);
-  display: flex;
-  justify-content: center;
-  flex-flow: column;
-} 
 .justify-content-md-end {
   @include media-breakpoint-up(md) {
     justify-content: end !important;
