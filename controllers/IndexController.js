@@ -78,7 +78,7 @@ module.exports.landingpage = async (req, res) => {
 }
 module.exports.contactLocations = async (req, res) => {
   const locations = await Location.find({}).populate('contactEmployee').sort({ order: 1 }).exec();
-  const sortedEmployees = locations.map(l => l.contactEmployee.sort((a,b) => a.order - b.order))
+  const sortedEmployees = locations.map(l => l.contactEmployee.sort((a, b) => a.order - b.order))
   locations.contactEmployee = sortedEmployees
   const contact = req.body
   res.render('contactLocations', {
@@ -176,6 +176,16 @@ module.exports.contact = async (req, res, next) => {
 
     if (!!process.env.HUBSPOT_API_KEY) {
       let fbclid = getFbClid(req, res, next);
+      let form_payload = {
+        'track': req.headers.referer,
+        'locations': location,
+        'body': body,
+        'is_company': companytour,
+        'utm_params': remainingUtmParams
+      }
+      if (req.body.answers) {
+        form_payload.anwers = req.body.answers
+      }
       var options = {
         method: 'POST',
         url: `https://api.hubapi.com/contacts/v1/contact/createOrUpdate/email/${email}`,
@@ -200,13 +210,7 @@ module.exports.contact = async (req, res, next) => {
               { property: 'hs_facebook_click_id', value: fbclid },
               {
                 property: 'form_payload',
-                value: JSON.stringify({
-                  'track': req.headers.referer,
-                  'locations': location,
-                  'body': body,
-                  'is_company': companytour,
-                  'utm_params': remainingUtmParams
-                })
+                value: JSON.stringify(form_payload)
               }
             ],
         },
@@ -360,6 +364,13 @@ module.exports.downloadCourseCurriculum = async (req, res, next) => {
     let remainingUtmParams = req.session.utmParams ? { ...req.session.utmParams } : []
     Object.keys(remainingUtmParams).map(q => q.startsWith('utm_') && delete remainingUtmParams[q])
     if (!!process.env.HUBSPOT_API_KEY) {
+      let form_payload = {
+        'track': req.headers.referer,
+        'utm_params': remainingUtmParams
+      }
+      if (req.body.answers) {
+        form_payload.anwers = req.body.answers
+      }
       var options = {
         method: 'POST',
         url: `https://api.hubapi.com/contacts/v1/contact/createOrUpdate/email/${email}`,
@@ -378,10 +389,7 @@ module.exports.downloadCourseCurriculum = async (req, res, next) => {
               { property: 'utm_term', value: req.session.utmParams ? JSON.stringify(req.session.utmParams.utm_term) : "" },
               {
                 property: 'form_payload',
-                value: JSON.stringify({
-                  'track': req.headers.referer,
-                  'utm_params': remainingUtmParams
-                })
+                value: JSON.stringify(form_payload)
               }
             ],
         },
