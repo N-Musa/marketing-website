@@ -1,6 +1,27 @@
 mixin contactform
   form#contactForm.mt-3.ajaxform(method="POST" action="/contact")
     .row
+      .col-md-4.bg-primary.text-white
+        .p-5
+          h2 Some text
+          .px-md-3
+            .square.rounded-circle.bg-white.position-relative.w-100
+              .p-4
+                img.object-fit-cover.img-fluid.position-absolute.top-50.left-50.shift-vertical-negative(alt="Women accepting calls" src="/media/callcenter.svg")
+            .my-3.d-flex.align-items-center.word-wrap-anywhere
+              span.d-inline-block.w-1.h-1.mr-1
+                include ../../assets/media/spinner.svg
+              | 030 - 364286190
+            .my-3.d-flex.align-items-center.word-wrap-anywhere
+              span.d-inline-block.w-1.h-1.mr-1
+                include ../../assets/media/spinner.svg
+              | contact@digitalcareerinstitute.org
+            .my-3.d-flex.align-items-center.word-wrap-anywhere
+              span.d-inline-block.w-1.h-1.mr-1
+                include ../../assets/media/spinner.svg
+              | Vulkanstraße 110367 Berlin
+      .col-md-8
+        .row
       .col-md-6.mb-3
         label(for='firstname')=__("firstname")
         input#firstname.form-control(name="firstname" type='text', placeholder='Firstname', value=contact ? contact.firstname : '', required)
