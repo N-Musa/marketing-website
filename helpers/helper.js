@@ -168,3 +168,7 @@ exports.getFbClid = (req, res, next) => {
   }
   return fbclid[0]
 }
+
+exports.jsonResponseObject = async (res, payload, error = undefined) => {
+  return res.json({payload, error})
+}

@@ -1828,3 +1828,11 @@ body[class*="pages-"] {
 .word-wrap-break-word{
   word-wrap: break-word;
 }
+#questionsdiagramroot {
+  height: 100%;
+	padding: 0;
+	margin: 0;
+  > div > div > div {
+    overflow: initial;
+  }
+}
